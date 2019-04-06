@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.wszib.domain.Car;
 
@@ -13,6 +14,12 @@ import java.util.List;
 
 @Controller
 public class CarController {
+
+    private List<Car> listCar;
+
+    public CarController() {
+        listCar = generateList();
+    }
 
     @GetMapping ("car/list")
     public String returnList(Model model){
@@ -29,6 +36,20 @@ public class CarController {
         List<Car> list = generateList();
         Car car = list.get(index);
         return "getOneTemplate";
+    }
+
+    @GetMapping("car/form")
+    public String forms (Model model){
+
+        model.addAttribute("car", new Car());
+        return "formsTemplate";
+    }
+
+    @PostMapping("car/form")
+    public String formsSave (Car car, Model model){
+
+        listCar.add(car);
+        return "saveCarTemplate";
     }
 
     private List<Car> generateList() {
