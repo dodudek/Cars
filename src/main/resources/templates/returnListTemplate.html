@@ -20,11 +20,13 @@
             <td th:text="${iterStat.index}"></td>
             <td th:text="${car.marka}"></td>
             <td th:text="${car.model}"></td>
+            <td><a th:href="@{/car/single/} + ${iterStat.index}">Link</a></td>
 
         </tr>
 
 
         <a href="formsTemplate.html" th:href="@{/car/form}">Dodaj samochód</a>
+
 
         </tbody>
     </table>

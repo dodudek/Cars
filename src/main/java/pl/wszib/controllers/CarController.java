@@ -35,7 +35,13 @@ public class CarController {
     public  String getOne (Model model, @PathVariable int index){
         List<Car> list = generateList();
         Car car = list.get(index);
+        model.addAttribute(car);
         return "getOneTemplate";
+    }
+
+    @GetMapping("links")
+    public String links(Model model){
+        return "linksTemplate";
     }
 
     @GetMapping("car/form")

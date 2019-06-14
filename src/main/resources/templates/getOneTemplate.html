@@ -6,7 +6,25 @@
 </head>
 <body>
 
+<table>
+    <thead>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Rocznik</th>
+    <th>Cena</th>
+    <th>Przebieg [km]</th>
+    </thead>
 
+    <tbody>
+
+    <td th:text="|${car.marka} ${car.model}|"></td>
+    <td th:text="${car.rocznik}"></td>
+    <td th:text="${car.przebieg}"></td>
+    <td th:text="${car.cena}"></td>
+
+
+    </tbody>
+</table>
 
 </body>
 </html>
